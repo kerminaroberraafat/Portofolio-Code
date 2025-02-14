@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Fold Portofolio</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Roboto', sans-serif;
+        }
+        :root{
+            --bg-color: #1f242d;
+            --second-bg-color: #323946;
+            --text-color: #fff;
+            --main-color: #0d7689;
+        }
+        html{
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+        body{
+            background: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            width: 100%;
+        }
+        .header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        .header.sticky{
+            border-bottom: .1rem solid rgba(0, 0, 0, .2);
+        }
+        .logo{
+            cursor: pointer;
+        }
+        .navbar a{
+            font-size: 1.7rem;
+            color: var(--text-color);
+            margin-left: 4rem;
+            transition: .3s;
+        }
+        .navbar a:hover, .navbar a.active{
+            color: var(--main-color);
+        }
+        #menu-icon{
+            font-size: 3.6rem;
+            color: var(--text-color);
+            display: none;
+        }
+        section{
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+        .home{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 7rem;
+        }
+        .home-content h3{
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+        .home-content h3:nth-of-type(2){
+            margin-bottom: 2rem;
+        }
+        span{
+            color: var(--main-color);
+        }
+        .home-content h1{
+            font-size: 5.6rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .home-content p{
+            font-size: 1.6rem;
+        }
+        .home_img img{
+            border-radius: 50%;
+            width: 30vw;
+            animation: floatImage 4s ease-in-out infinite;
+        }
+        @keyframes floatImage{
+            0%{
+                transform: translateY(0);
+            }
+            50%{
+                transform: translateY(-2.4rem);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+        .social-media a{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: .2rem solid var(--main-color);
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--main-color);
+            margin: 3rem 1.5rem 3rem 0;
+            transition: .5rem ease;
+        }
+        .social-media a:hover{
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+        .btn{
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background-color: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem var(--main-color);
+            font-size: 1.6rem;
+            color: var(--second-bg-color);
+            letter-spacing: .1rem;
+            font-weight: 600;
+            transition: .5s ease;
+            cursor: pointer;
+        }
+        .btn:hover{
+            box-shadow: none;
+        }
+        .about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    background: var(--second-bg-color);
+}
+
+.about-img {
+    position: relative;
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    background: var(--second-bg-color); /* Ensures background is applied here */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-img img {
+    width: 25vw;
+    border-radius: 50%;
+    border: 0.2rem solid var(--main-color);
+}
+
+.about-img .circle-spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    width: calc(100% + 3rem); /* Larger than img by 3rem */
+    height: calc(100% + 3rem);
+    border-radius: 50%;
+    border-top: 0.2rem solid var(--second-bg-color);
+    border-bottom: 0.2rem solid var(--second-bg-color);
+    border-left: 0.2rem solid var(--main-color);
+    border-right: 0.2rem solid var(--main-color);
+    animation: aboutSpinner 8s linear infinite;
+}
+
+@keyframes aboutSpinner {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+        .heading{
+            text-align: center;
+            font-size: 4.5rem;
+        }
+        .about-content h2{
+            text-align: left;
+            line-height: 1.2;
+        }
+        .about-content h3{
+            font-size: 2.6rem;
+        }
+        .about-content p{
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+            margin-bottom: 2rem;
+            line-height: 1.3; 
+            word-spacing: 0.1rem;
+        }
+        .skills{
+            min-height: auto;
+            padding-bottom: 7rem;
+            background: var(--bg-color);
+        }
+        .skills .skills-row{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5rem;
+            margin-top: 5rem;
+        }
+        .skills-row .skills-column{
+            flex: 1 1 40rem;
+        }
+        .skills-column .title{
+            font-size: 2.5rem;
+            margin: 0 0 1.5rem;
+        }
+        .skills-box .skills-content{
+            position: relative;
+            border: .2rem solid var(--main-color);
+            border-radius: .6rem;
+            padding: .5rem 1.5rem;
+        }
+        .skills-content .progress{
+            padding: 1rem 0;
+        }
+        .skills-content .progress h3{
+            font-size: 1.7rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .skills-content .progress h3 span{
+            color: var(--text-color);
+        }
+        .skills-content .progress .bar{
+            height: 2.5rem;
+            border-radius: .6rem;
+            border: .2rem solid var(--main-color);
+            padding: .5rem;
+            margin: 1rem 0;
+        }
+        .skills-content .progress .bar span{
+            display: block;
+            height: 100%;
+            border-radius: .5rem;
+            background: var(--main-color);
+        }
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar span{
+            width: 90%;
+        }
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span{
+            width: 70%;
+        }
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span{
+            width: 30%;
+        }
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span{
+            width: 15%;
+        }
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(5) .bar span{
+            width: 80%;
+        }
+        .skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span{
+            width: 95%;
+        }
+        .skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span{
+            width: 95%;
+        }
+        .skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span{
+            width: 65%;
+        }
+        .skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span{
+            width: 80%;
+        }
+        .skills-column:nth-child(2) .skills-content .progress:nth-child(5) .bar span{
+            width: 75%;
+        }
+        .projects{
+            background: var(--second-bg-color);
+        }
+        .projects h2{
+            margin-bottom: 4rem;
+        }
+        .projects-container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+            gap: 2.5rem;
+        }
+        .projects-container .projects-box{
+            position: relative;
+            border-radius: 2rem;
+            box-shadow: 0 0 1rem var(--bg-color);
+            overflow: hidden;
+            display: flex;
+        }
+        .projects-box  img{
+            width: 100%;
+        }
+        .projects-box .projects-layer{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 4rem;
+            transform: translateY(100%);
+            transition: .5s ease;
+        }
+        .projects-box:hover .projects-layer{
+            transform: translateY(0);
+        }
+        .projects-layer h4{
+            font-size: 3rem;
+        }
+        .projects-layer p{
+            font-size: 1.6rem;
+            margin: .3rem 0 1rem;
+        }
+        .projects-layer a{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 5rem;
+            height: 5rem;
+            background: var(--text-color);
+            border-radius: 50%;
+        }
+        .projects-layer a i{
+            font-size: 2rem;
+            color: var(--second-bg-color);
+        }
+        .projects-box img{
+            width: 100%;
+            transition: .5s ease;
+        }
+        .projects-box:hover img{
+            transform: scale(1.1);
+        }
+        .projects h2{
+            padding-bottom: 20px;
+        }
+        .contact h2{
+            margin-bottom: 3rem;
+        }
+        .contact form{
+            max-width: 70rem;
+            margin: 1rem auto;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .contact form .input-box{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .contact form .input-box input, .contact form textarea{
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            background: var(--second-bg-color);
+            border-radius: .8rem;
+            margin: .7rem 0;
+        }
+        .contact form .input-box input{
+            width: 49%;
+        }
+        .contact form textarea{
+            resize: none;
+        }
+        .contact form .btn{
+            margin-top: 2rem;
+            cursor: pointer;
+        }
+        .footer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 2rem 9%;
+            background: var(--second-bg-color);
+        }
+        .footer-text p{
+            font-size: 1.6rem;
+        }
+        .footer-iconTop a{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem;
+            background: var(--main-color);
+            border-radius: .8rem;
+            transition: .5s ease;
+        }
+        .footer-iconTop a:hover{
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+        .footer-iconTop a i{
+            font-size: 2.4rem;
+            color: var(--second-bg-color);
+        }
+        @media (max-width: 1200px) {
+            html{
+                font-size: 55%;
+            }
+        }
+        @media (max-width: 991px) {
+            .header{
+                padding: 2rem 3%;
+            }
+            section{
+                padding: 10rem 3% 2rem;
+            }
+            .footer{
+                padding: 2rem 3%;
+            }
+            .projects{
+                padding-bottom: 7rem;
+            }
+        }
+        @media (max-width: 768px){
+            #menu-icon{
+                display: block;
+            }
+            #menu-icon:hover{
+                cursor: pointer;
+            }
+            .navbar{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 3%;
+                background: var(--bg-color);
+                border-top: .1rem solid rgba(0, 0, 0, .2);
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+                display: none;
+            }
+            .navbar.active{
+                display: block;
+            }
+            .navbar a{
+                display: block;
+                font-size: 2rem;
+                margin: 3rem 0;
+            }
+            .home{
+                flex-direction: column;
+            }
+            .home-content h3{
+                font-size: 2.6rem;
+            }
+            .home-content h1{
+                font-size: 5rem;
+            }
+            .home_img img{
+                width: 70vw;
+                margin-top: 4rem;
+            }
+            .about {
+                flex-direction: column-reverse;
+                gap: 3rem;
+            }
+
+            .about-img {
+                width: 60vw;
+                height: 60vw;
+            }
+
+            .about-img img {
+                width: 90%; /* Ensure image scales correctly */
+            }
+
+            .about-img .circle-spin {
+                width: calc(100%); /* Larger than img by 3rem on each side */
+                height: calc(100%);
+            }
+            .projects h2{
+                margin-bottom: 3rem;
+            }
+            .home{
+                gap: 0;
+            }
+            .projects-container{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 617px){
+            #menu-icon{
+                display: block;
+            }
+            .navbar{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 3%;
+                background: var(--bg-color);
+                border-top: .1rem solid rgba(0, 0, 0, .2);
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+                display: none;
+            }
+            .navbar.active{
+                display: block;
+            }
+            .navbar a{
+                display: block;
+                font-size: 2rem;
+                margin: 3rem 0;
+            }
+            .projects-container{
+                grid-template-columns: 1fr;
+            }
+            .about {
+                flex-direction: column-reverse;
+                gap: 3rem;
+            }
+
+            .about-img {
+                width: 60vw;
+                height: 60vw;
+            }
+
+            .about-img img {
+                width: 90%; /* Ensure image scales correctly */
+            }
+
+            .about-img .circle-spin {
+                width: calc(100%); /* Larger than img by 3rem on each side */
+                height: calc(100%);
+            }
+        }
+        @media (max-width: 450px){
+            html{
+                font-size: 50%;
+            }
+            .contact form .input-box input{
+                width: 100%;
+            }
+        }
+        @media (max-width: 365px){
+            .home_img{
+                width: 90vw;
+            }
+            .about {
+                flex-direction: column-reverse;
+                gap: 3rem;
+            }
+
+            .about-img {
+                width: 60vw;
+                height: 60vw;
+            }
+
+            .about-img img {
+                width: 90%; /* Ensure image scales correctly */
+            }
+
+            .about-img .circle-spin {
+                width: calc(100%); /* Larger than img by 3rem on each side */
+                height: calc(100%);
+            }
+            .footer{
+                flex-direction: column-reverse;
+            }
+            .footer p{
+                text-align: center;
+                margin-top: 2rem;
+            }
+            #menu-icon{
+                display: block;
+                cursor: pointer;
+            }
+            .navbar{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 3%;
+                background: var(--bg-color);
+                border-top: .1rem solid rgba(0, 0, 0, .2);
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+                display: none;
+            }
+            .navbar.active{
+                display: block;
+            }
+            .navbar a{
+                display: block;
+                font-size: 2rem;
+                margin: 3rem 0;
+            }
+            .home-content{
+                margin-left: 10px;
+                margin-top: 10px;
+            }
+            .logo{
+                width: 200px;
+                height: auto;
+            }
+            .home_img{
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+        @media (max-width: 280px){
+            .home_img{
+                width: 90vw;
+            }
+            .about {
+                flex-direction: column-reverse;
+                gap: 3rem;
+            }
+
+             .about-img {
+                width: 60vw;
+                height: 60vw;
+            }
+
+            .about-img img {
+                width: 90%; /* Ensure image scales correctly */
+            }
+
+            .about-img .circle-spin {
+                 width: calc(100%); /* Larger than img by 3rem on each side */
+                 height: calc(100%);
+            }
+            .footer{
+                flex-direction: column-reverse;
+            }
+            .footer p{
+                text-align: center;
+                margin-top: 2rem;
+            }
+            #menu-icon{
+                display: block;
+                cursor: pointer;
+            }
+            .navbar{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 3%;
+                background: var(--bg-color);
+                border-top: .1rem solid rgba(0, 0, 0, .2);
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+                display: none;
+            }
+            .navbar.active{
+                display: block;
+            }
+            .navbar a{
+                display: block;
+                font-size: 2rem;
+                margin: 3rem 0;
+            }
+            .home-content{
+                margin-left: 10px;
+                margin-top: 10px;
+            }
+            .logo{
+                width: 200px;
+                height: auto;
+            }
+            .home_img{
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+        @media (max-width: 250px){
+            .logo{
+                width: 150px;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <a href="index.html" class="logo"><img src="logo.png" width="250px" class="logo"></a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#skills">My Skills</a>
+            <a href="#projects">My Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Kermina Rober</h1>
+            <h3>And I'm a <span class="multiple-text"></span></h3>
+            <p>I'm a Frontend Web Developer who loves building user-friendly websites and exploring creativity through origami and quilling crafts.</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/share/18iv7tfhnS/" target="_blank"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.instagram.com/rober.kitty?igsh=ejJ4c3N4cjJoeDF0" target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://youtube.com/@guided_by_his_light7?si=2uazLX_tGGzNO6j8" target="_blank"><i class='bx bxl-youtube'></i></a>
+            </div>
+            <a href="#contact"><button class="btn">Contact Me!</button></a>
+        </div>
+        <div class="home_img">
+            <img src="kitty.jpg" alt="Kermina's Photo">
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="kitty.jpg" alt="Kermina's Photo">
+            <span class="circle-spin"></span>
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>Web Developer</h3>
+            <p>
+                I'm a passionate Frontend Web Developer, proficient in HTML, CSS, and JavaScript, with some experience in PHP for backend development. I’ve worked on multiple websites and enjoy blending creativity and technology in my projects.  
+                Beyond coding, I have a knack for crafting intricate origami and quilling designs. I also write scripts, transcribe videos with summaries, and dabble in logo design as I continue to enhance my skills.  
+                I’m fluent in Arabic and English, with a basic understanding of Turkish. My love for programming extends to robotics, where I’ve taken courses, built robots, and explored automation. I'm always eager to learn and take on new challenges to grow as a developer and innovator.
+            </p>            
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
+        <div class="skills-row">
+            <div class="skills-column">
+                <h3 class="title">Technological Skills</h3>
+                <div class="skills-box">
+                    <div class="skills-content">
+
+                        <div class="progress">
+                            <h3>HTML <span>90%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>CSS <span>70%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>JavaScript <span>30%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>PHP <span>15%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Robotics <span>80%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-column">
+                <h3 class="title">Hobbies</h3>
+                <div class="skills-box">
+                    <div class="skills-content">
+
+                        <div class="progress">
+                            <h3>Origami <span>95%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Quilling <span>95%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Logo Design <span>65%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Inspirational YouTuber <span>80%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        <div class="progress">
+                            <h3>Content Writing <span>75%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+
+    <section class="projects" id="projects">
+        <h2 class="heading">Latest <span>Projects</span></h2>
+        <div class="projects-container">
+            <div class="projects-box">
+                <img src="ecoheart.jpeg" alt="EchoHeart" width="auto" height="250px">
+                <div class="projects-layer">
+                    <h4>EcoHeart</h4>
+                    <p><b>EcoHeart</b> is a medical website that offers health advice, wellness tools, and sustainable practices to support your well-being. Explore medical insights, personalized care, and a community committed to a healthier life.</p>
+                    <a href="https://ecoheart-med.great-site.net" target="_blank"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="projects-box">
+                <img src="heart.jpeg" alt="Quilling Art Heart" width="auto" height="250px">
+                <div class="projects-layer">
+                    <h4>Quilling Art Heart</h4>
+                    <p>A vibrant 3D quilling art piece of a heart, crafted with delicate paper strips to represent love, passion, and emotion.</p>
+                    <a href="heart.jpeg" target="_blank"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="projects-box">
+                <img src="quilling-brain.jpeg" alt="Quilling Art Brain" width="auto" height="250px">
+                <div class="projects-layer">
+                    <h4>Quilling Art Brain</h4>
+                    <p>A creative 3D quilling art piece of a brain, intricately designed with paper strips to symbolize thought, creativity, and intelligence.</p>
+                    <a href="quilling-brain.jpeg" target="_blank"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="projects-box">
+                <img src="3d-quilling-doctor.jpeg" alt="3d Quilling Doctor" width="auto" height="250px">
+                <div class="projects-layer">
+                    <h4>3d Quilling Doctor</h4>
+                    <p>A detailed 3D paper quilling model of a doctor, showcasing the medical profession with precision and artistic flair.</p>
+                    <a href="3d-quilling-doctor.jpeg" target="_blank"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="projects-box">
+                <img src="virgin-mary.jpeg" alt="Quilling Art Virgin Mary" width="auto" height="250px">
+                <div class="projects-layer">
+                    <h4>Quilling Art Virgin Mary</h4>
+                    <p>An elegant 3D quilling art piece of the Virgin Mary, delicately crafted with paper strips to capture her grace and serenity.</p>
+                    <a href="virgin-mary.jpeg" target="_blank"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="projects-box">
+                <img src="parrot.jpeg" alt="Quilling Art Parrot" width="auto" height="250px">
+                <div class="projects-layer">
+                    <h4>Quilling Art Parrot</h4>
+                    <p>A vibrant 3D quilling art of a parrot, skillfully crafted with colorful paper strips, capturing the bird's lively spirit and beauty.</p>
+                    <a href="parrot.jpeg" target="_blank"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+    <h2 class="heading">Contact <span>Me!</span></h2>
+    <form action="process_contact.php" method="POST">
+        <div class="input-box">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address (Optional)">
+        </div>
+        <div class="input-box">
+            <input type="number" name="mobile" placeholder="Mobile Number">
+            <input type="text" name="subject" placeholder="Email Subject (Optional)">
+        </div>
+        <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+        <input type="submit" value="Send Message" class="btn">
+    </form>
+</section>
+    
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2025 by TΞch ↔ Fold | All Rights Reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        let menuIcon = document.querySelector('#menu-icon');
+        let navbar = document.querySelector('.navbar');
+
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle('bx-x');
+            navbar.classList.toggle('active');
+        };
+
+        let sections = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('header nav a');
+
+        window.onscroll = () => {
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if(top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                });
+                };
+            });
+
+            let header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 100);
+
+            menuIcon.classList.remove('bx-x');
+            navbar.classList.remove('active');
+        };
+
+        ScrollReveal({
+            reset: true,
+            distance: '80px',
+            duration: 2000,
+            delay: 200
+        });
+
+        ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+        ScrollReveal().reveal('.home_img, .skills-row, .projects-box, .contact', { origin: 'bottom' });
+        ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
+        ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+
+        const typed = new Typed('.multiple-text', {
+            strings: ['Paper Craft Specialist','Frontend Developer', 'Inspirational Youtuber', 'Robotics Technician', 'Content Writer',],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
+    </script>
+
+</body>
+</html>
